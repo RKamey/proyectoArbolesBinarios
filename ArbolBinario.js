@@ -61,7 +61,7 @@ class ArbolBinario {
 
     crearArbol() {
         let aux = this.primero;
-        while (aux != null) {
+        for (let i = 0; i < this.expresion.length-1; i++) {
             if (aux.valor == '*' || aux.valor == '/') {
                 aux.hijoIzq = aux.anterior;
                 aux.hijoDer = aux.siguiente;
@@ -71,7 +71,7 @@ class ArbolBinario {
             aux = aux.siguiente;
         }
         aux = this.primero;
-        while (aux != null) {
+        for (let i = 0; i < this.expresion.length-1; i++) {
             if (aux.valor == '+' || aux.valor == '-') {
                 aux.hijoIzq = aux.anterior;
                 aux.hijoDer = aux.siguiente;
