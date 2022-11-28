@@ -137,23 +137,23 @@ class ArbolBinario {
     }
 
     calcularPostorder() {
-        let pila = [];
+        let cola = [];
     
         for (let i = 0; i < this.postorderArr.length; i++) {
           if (!isNaN(this.postorderArr[i])) {
-                pila.push(Number(this.postorderArr[i]));
+                cola.push(Number(this.postorderArr[i]));
                 continue
             }
     
-        let num1 = pila.pop();
-        let num2 = pila.pop();
-        let resultado = this.operacionConDosNumeros(this.postorderArr[i], num1, num2)
+        let num1 = cola.pop();
+        let num2 = cola.pop();
+        let resultado = this.operacionConDosNumeros(this.postorderArr[i], num2, num1)
 
-        pila.push(resultado);
+        cola.push(resultado);
         }
     
-        return pila.pop();
-    } 
+        return cola.pop();
+    }
 
     mostrarPreorderHTML() {
         let preorder = this.preorder(this.raiz);
