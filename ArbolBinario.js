@@ -40,22 +40,16 @@ class ArbolBinario {
         }
     }
 
-    borrarNodo(nodox) {
-        if (nodox != this.primero) {
-            nodox.anterior.siguiente = nodox.siguiente;
-            if (nodox.siguiente != null) {
-                nodox.siguiente.anterior = nodox.anterior;
-            } else {
-                this.ultimo = nodox.anterior;
-            }
+     borrarNodo(nodox) {
+        if (nodox == this.primero) {
+            this.primero = nodox.siguiente;
+            this.primero.anterior = null;
+        } else if (nodox == this.ultimo) {
+            this.ultimo = nodox.anterior;
+            this.ultimo.siguiente = null;
         } else {
-            if (this.primero == this.ultimo) {
-                this.primero = null;
-                this.ultimo = null;
-            } else {
-                this.primero = this.primero.siguiente;
-                this.primero.anterior = null;
-            }
+            nodox.anterior.siguiente = nodox.siguiente;
+            nodox.siguiente.anterior = nodox.anterior;
         }
     }
 
